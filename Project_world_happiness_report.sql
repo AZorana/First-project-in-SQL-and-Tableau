@@ -32,7 +32,7 @@ CREATE VIEW Total_population_and_difference AS
 SELECT SUM(Population_2019) AS Total_population_2019, SUM(Population_2020) AS Total_population_2020,
 SUM(Population_2020-Population_2019) AS Diff
 FROM world_happiness_report.whrdata_2021;
-
+death_noisland_island
 SELECT * FROM Total_population_and_difference;
 
 /* 5. Replaced 0 and 1 with False and True respectively in the column Island*/
@@ -46,7 +46,8 @@ WHERE  Island='0';
 /* 6. The difference in the number of deaths in 2020 compared to 2019, 2018, 2017 */
 
 CREATE VIEW Diff_death AS 
-SELECT (All_cause_death_2020-All_cause_death_2019) AS Diff_2020_2019,
+SELECT Country_name,
+       (All_cause_death_2020-All_cause_death_2019) AS Diff_2020_2019,
 	   (All_cause_death_2020-All_cause_death_2018) AS Diff_2020_2018,
        (All_cause_death_2020-All_cause_death_2017) AS Diff_2020_2017
 FROM world_happiness_report.whrdata_2021;
